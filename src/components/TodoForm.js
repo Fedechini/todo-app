@@ -1,8 +1,16 @@
-import React, { useState } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import nextId from "react-id-generator";
 
 function TodoForm(props) {
-  const [input, setInput] = useState("");
+  const [input, setInput] = useState(
+    props.todoToEdit ? props.todoToEdit.value : ""
+  );
+
+  const inputFocus = useRef(null);
+
+  useEffect(() => {
+    inputFocus.current.focus();
+  });
 
   const handleChange = (e) => {
     setInput(e.target.value);
@@ -12,7 +20,7 @@ function TodoForm(props) {
     e.preventDefault();
 
     props.addTodo({
-      id: nextId(),
+      id: `${props.todoToEdit ? props.todoToEdit.id : nextId()}`,
       text: input,
     });
 
@@ -23,13 +31,16 @@ function TodoForm(props) {
     <form className="todo__form" onSubmit={handleSubmit}>
       <input
         type="text"
-        placeholder="Create a new todo..."
+        placeholder={props.todoToEdit ? "Update todo" : "Create a new todo..."}
         name="todo"
         className="todo__form-input"
         value={input}
         onChange={handleChange}
+        ref={inputFocus}
       />
-      <button className="todo-button">Add todo</button>
+      <button className="todo-button">
+        {props.todoToEdit ? "Update" : "Add Todo"}
+      </button>
     </form>
   );
 }
