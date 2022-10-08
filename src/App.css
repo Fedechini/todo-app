@@ -6,6 +6,13 @@
   background-color: var(--very-dark-blue);
 }
 
+#light {
+  background-color: var(--very-light-grayish-blue);
+  background: url(../public/images/bg-desktop-light.jpg);
+  background-size: 100% 30vh;
+  background-repeat: no-repeat;
+}
+
 .todo-app {
   margin: 0 auto;
   padding: 8rem 0;
@@ -42,6 +49,10 @@
   box-shadow: var(--dark-box-shadow);
 }
 
+#light .todo__form {
+  background-color: var(--very-light-gray);
+}
+
 .todo__form-input,
 .todo__form-input:focus {
   width: 100%;
@@ -58,6 +69,11 @@
   border-radius: 5px;
 }
 
+#light .todos-container {
+  background-color: var(--very-light-gray);
+  color: var(--very-dark-grayish-blue);
+}
+
 .todo__el {
   display: flex;
   align-items: center;
@@ -65,9 +81,13 @@
   border-bottom: 1px solid var(--dark-grayish-blue);
 }
 
+#light .todo__el {
+  border-bottom: 1px solid var(--light-grayish-blue);
+}
+
 .icon-check {
-  height: 2.5rem;
-  width: 2.5rem;
+  min-height: 2.5rem;
+  min-width: 2.5rem;
   border: 1px solid currentColor;
   border-radius: 50%;
   margin-right: 2.5rem;
@@ -93,7 +113,8 @@
 }
 
 .icon-delete,
-.icon-edit {
+.icon-edit,
+.toggle__theme-icon {
   cursor: pointer;
 }
 
@@ -115,8 +136,20 @@
   cursor: pointer;
 }
 
+.filter-btns {
+  display: flex;
+  flex: 1;
+  justify-content: center;
+  align-items: center;
+  gap: 1.5rem;
+}
+
 .btn-options:hover {
   color: var(--very-light-gray);
+}
+
+#light .btn-options:hover {
+  color: var(--very-dark-blue);
 }
 
 .items-left {
@@ -139,4 +172,34 @@
   transform: translateX(-50%);
   color: var(--dark-grayish-blue);
   font-size: 1.6rem;
+}
+
+@media (max-width: 600px) {
+  .app-container {
+    background: url(../public/images/bg-mobile-dark.jpg);
+    background-size: 100% 30vh;
+    background-repeat: no-repeat;
+    background-color: var(--very-dark-blue);
+  }
+
+  #light {
+    background-color: var(--very-light-grayish-blue);
+    background: url(../public/images/bg-mobile-light.jpg);
+    background-size: 100% 30vh;
+    background-repeat: no-repeat;
+  }
+
+  .todo-app {
+    padding: 8rem 3rem;
+  }
+
+  .todo__el > p {
+    margin-right: 1rem;
+    font-size: 2rem;
+  }
+
+  .todo-options {
+    gap: 0.75rem;
+    font-size: 1.75rem;
+  }
 }

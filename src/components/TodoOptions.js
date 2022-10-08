@@ -6,7 +6,7 @@ function TodoOptions({ todos, clearCompleted, filterList }) {
       <p className="items-left">
         {todos.filter((todo) => todo.isDone !== true).length} items left
       </p>
-      {filterList}
+      <div className="filter-btns">{filterList}</div>
       <button className="btn-options clear-completed" onClick={clearCompleted}>
         Clear Completed
       </button>
