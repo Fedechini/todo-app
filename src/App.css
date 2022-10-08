@@ -26,6 +26,11 @@
   padding: 1rem 0;
 }
 
+.todo__list {
+  box-shadow: var(--dark-box-shadow);
+  position: relative;
+}
+
 .todo__form {
   background-color: var(--very-dark-desaturated-blue);
   margin-bottom: 3rem;
@@ -34,6 +39,7 @@
   align-items: center;
   padding: 2rem;
   border-radius: 5px;
+  box-shadow: var(--dark-box-shadow);
 }
 
 .todo__form-input,
@@ -68,6 +74,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  cursor: pointer;
 }
 
 .checked {
@@ -82,7 +89,12 @@
 .todo_el-icons {
   margin-left: auto;
   display: flex;
-  gap: 1rem;
+  gap: 1.25rem;
+}
+
+.icon-delete,
+.icon-edit {
+  cursor: pointer;
 }
 
 .todo-options {
@@ -103,6 +115,10 @@
   cursor: pointer;
 }
 
+.btn-options:hover {
+  color: var(--very-light-gray);
+}
+
 .items-left {
   margin-right: auto;
 }
@@ -113,4 +129,14 @@
 
 .active {
   color: var(--bright-blue);
+}
+
+.drag-text {
+  position: absolute;
+  text-align: center;
+  bottom: -10rem;
+  left: 50%;
+  transform: translateX(-50%);
+  color: var(--dark-grayish-blue);
+  font-size: 1.6rem;
 }

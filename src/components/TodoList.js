@@ -87,6 +87,7 @@ function TodoList() {
         clearCompleted={clearCompleted}
         filterList={filterList}
       />
+      <p className="drag-text">Drag and drop to reorder list</p>
     </div>
   );
 }
