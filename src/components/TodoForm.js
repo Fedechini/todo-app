@@ -38,9 +38,9 @@ function TodoForm(props) {
         onChange={handleChange}
         ref={inputFocus}
       />
-      <button className="todo-button">
+      {/* <button className="todo-button">
         {props.todoToEdit ? "Update" : "Add Todo"}
-      </button>
+      </button> */}
     </form>
   );
 }

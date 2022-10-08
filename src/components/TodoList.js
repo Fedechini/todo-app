@@ -3,7 +3,14 @@ import Todo from "./Todo";
 import TodoForm from "./TodoForm";
 
 function TodoList() {
-  const [todos, setTodos] = useState([]);
+  const [todos, setTodos] = useState([
+    { id: 1, text: "Complete JavaScript course", isDone: true },
+    { id: 2, text: "Jog around the park 3x" },
+    { id: 3, text: "10 minutes meditation" },
+    { id: 4, text: "Read for 1 hour" },
+    { id: 5, text: "Pick up groceries" },
+    { id: 6, text: "Complete Todo App on Frontend Mentor" },
+  ]);
 
   const addTodo = (todo) => {
     if (!todo.text || /^\s*$/.test(todo.text)) {
@@ -15,7 +22,7 @@ function TodoList() {
     setTodos(newTodos);
   };
 
-  const doneTodo = (id) => {
+  const completeTodo = (id) => {
     let updatedTodos = todos.map((todo) => {
       if (todo.id === id) {
         todo.isDone = !todo.isDone;
@@ -23,6 +30,12 @@ function TodoList() {
       return todo;
     });
     setTodos(updatedTodos);
+  };
+
+  const clearCompleted = () => {
+    const completedArr = [...todos].filter((todo) => todo.isDone !== true);
+
+    setTodos(completedArr);
   };
 
   const removeTodo = (id) => {
@@ -42,16 +55,16 @@ function TodoList() {
   };
 
   return (
-    <>
-      <h2>Todo list challenge</h2>
+    <div className="todo__list">
       <TodoForm addTodo={addTodo} />
       <Todo
         todos={todos}
-        doneTodo={doneTodo}
+        completeTodo={completeTodo}
         removeTodo={removeTodo}
         updateTodo={updateTodo}
+        clearCompleted={clearCompleted}
       />
-    </>
+    </div>
   );
 }
 

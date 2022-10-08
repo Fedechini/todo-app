@@ -1,1 +1,116 @@
+.app-container {
+  min-height: 100vh;
+  background: url(../public/images/bg-desktop-dark.jpg);
+  background-size: 100% 30vh;
+  background-repeat: no-repeat;
+  background-color: var(--very-dark-blue);
+}
 
+.todo-app {
+  margin: 0 auto;
+  padding: 8rem 0;
+  color: var(--very-light-gray);
+  max-width: 55rem;
+  display: flex;
+  flex-direction: column;
+  gap: 4rem;
+}
+
+.header {
+  display: inline-block;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  text-transform: uppercase;
+  letter-spacing: 1.75rem;
+  padding: 1rem 0;
+}
+
+.todo__form {
+  background-color: var(--very-dark-desaturated-blue);
+  margin-bottom: 3rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 2rem;
+  border-radius: 5px;
+}
+
+.todo__form-input,
+.todo__form-input:focus {
+  width: 100%;
+  font-size: 1.8rem;
+  outline: none;
+  background-color: inherit;
+  border: none;
+  color: var(--dark-grayish-blue);
+  font-family: "Josefin Sans", sans-serif;
+}
+
+.todos-container {
+  background-color: var(--very-dark-desaturated-blue);
+  border-radius: 5px;
+}
+
+.todo__el {
+  display: flex;
+  align-items: center;
+  padding: 2rem;
+  border-bottom: 1px solid var(--dark-grayish-blue);
+}
+
+.icon-check {
+  height: 2.5rem;
+  width: 2.5rem;
+  border: 1px solid currentColor;
+  border-radius: 50%;
+  margin-right: 2.5rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.checked {
+  background: linear-gradient(120deg, hsl(192, 100%, 67%), hsl(280, 87%, 65%));
+}
+
+.done {
+  color: var(--dark-grayish-blue);
+  text-decoration: line-through;
+}
+
+.todo_el-icons {
+  margin-left: auto;
+  display: flex;
+  gap: 1rem;
+}
+
+.todo-options {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+  padding: 2rem;
+  color: var(--dark-grayish-blue);
+  font-size: 1.6rem;
+}
+
+.btn-options {
+  border: none;
+  background-color: inherit;
+  color: inherit;
+  font-size: inherit;
+  cursor: pointer;
+}
+
+.items-left {
+  margin-right: auto;
+}
+
+.clear-completed {
+  margin-left: auto;
+}
+
+.options-active {
+  color: var(--bright-blue);
+}
