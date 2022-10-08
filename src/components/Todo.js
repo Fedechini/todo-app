@@ -3,7 +3,16 @@ import TodoForm from "./TodoForm";
 import TodoOptions from "./TodoOptions";
 import { FiDelete, FiEdit } from "react-icons/fi";
 
-function Todo({ todos, completeTodo, removeTodo, updateTodo, clearCompleted }) {
+function Todo({
+  todos,
+  FILTER_MAP,
+  filter,
+  completeTodo,
+  removeTodo,
+  updateTodo,
+  clearCompleted,
+  filterList,
+}) {
   const [todoToEdit, setTodoToEdit] = useState({
     id: null,
     value: "",
@@ -24,7 +33,7 @@ function Todo({ todos, completeTodo, removeTodo, updateTodo, clearCompleted }) {
 
   return (
     <div className="todos-container">
-      {todos.map((todo, i) => (
+      {todos.filter(FILTER_MAP[filter]).map((todo, i) => (
         <div className={todo.isDone ? "todo__el done" : "todo__el"} key={i}>
           <div
             className={todo.isDone ? "icon-check checked" : "icon-check"}
@@ -58,7 +67,11 @@ function Todo({ todos, completeTodo, removeTodo, updateTodo, clearCompleted }) {
           </div>
         </div>
       ))}
-      <TodoOptions todos={todos} clearCompleted={clearCompleted} />
+      <TodoOptions
+        todos={todos}
+        clearCompleted={clearCompleted}
+        filterList={filterList}
+      />
     </div>
   );
 }

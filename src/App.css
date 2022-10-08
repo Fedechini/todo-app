@@ -111,6 +111,6 @@
   margin-left: auto;
 }
 
-.options-active {
+.active {
   color: var(--bright-blue);
 }

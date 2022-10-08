@@ -2,6 +2,14 @@ import React, { useState } from "react";
 import Todo from "./Todo";
 import TodoForm from "./TodoForm";
 
+const FILTER_MAP = {
+  All: () => true,
+  Active: (todo) => !todo.isDone,
+  Completed: (todo) => todo.isDone,
+};
+
+const FILTER_NAMES = Object.keys(FILTER_MAP);
+
 function TodoList() {
   const [todos, setTodos] = useState([
     { id: 1, text: "Complete JavaScript course", isDone: true },
@@ -11,6 +19,18 @@ function TodoList() {
     { id: 5, text: "Pick up groceries" },
     { id: 6, text: "Complete Todo App on Frontend Mentor" },
   ]);
+  const [filter, setFilter] = useState("All");
+
+  const filterList = FILTER_NAMES.map((name) => (
+    <button
+      key={name}
+      name={name}
+      className={name === filter ? "btn-options active" : "btn-options"}
+      onClick={() => setFilter(name)}
+    >
+      {name}
+    </button>
+  ));
 
   const addTodo = (todo) => {
     if (!todo.text || /^\s*$/.test(todo.text)) {
@@ -59,10 +79,13 @@ function TodoList() {
       <TodoForm addTodo={addTodo} />
       <Todo
         todos={todos}
+        FILTER_MAP={FILTER_MAP}
+        filter={filter}
         completeTodo={completeTodo}
         removeTodo={removeTodo}
         updateTodo={updateTodo}
         clearCompleted={clearCompleted}
+        filterList={filterList}
       />
     </div>
   );
