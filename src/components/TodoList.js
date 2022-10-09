@@ -74,6 +74,15 @@ function TodoList() {
     );
   };
 
+  const handleOnDragEnd = (result) => {
+    if (!result.destination) return;
+
+    const [reorderedItem] = todos.splice(result.source.index, 1);
+    todos.splice(result.destination.index, 0, reorderedItem);
+
+    setTodos(todos);
+  };
+
   return (
     <div className="todo__list">
       <TodoForm addTodo={addTodo} />
@@ -86,6 +95,7 @@ function TodoList() {
         updateTodo={updateTodo}
         clearCompleted={clearCompleted}
         filterList={filterList}
+        handleOnDragEnd={handleOnDragEnd}
       />
       <p className="drag-text">Drag and drop to reorder list</p>
     </div>

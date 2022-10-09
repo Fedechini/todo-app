@@ -64,7 +64,8 @@
   font-family: "Josefin Sans", sans-serif;
 }
 
-.todos-container {
+.todos-container,
+.todo-options {
   background-color: var(--very-dark-desaturated-blue);
   border-radius: 5px;
 }
@@ -74,15 +75,31 @@
   color: var(--very-dark-grayish-blue);
 }
 
+#light .todo-options {
+  background-color: var(--very-light-gray);
+  color: var(--very-dark-grayish-blue);
+}
+
 .todo__el {
   display: flex;
   align-items: center;
   padding: 2rem;
   border-bottom: 1px solid var(--dark-grayish-blue);
+  border-radius: 5px;
+}
+
+.todo__el:active {
+  border: none;
+  background-color: var(--very-dark-grayish-blue);
 }
 
 #light .todo__el {
   border-bottom: 1px solid var(--light-grayish-blue);
+}
+
+#light .todo__el:active {
+  border: none;
+  background-color: var(--very-light-grayish-blue);
 }
 
 .icon-check {
