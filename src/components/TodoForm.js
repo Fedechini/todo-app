@@ -1,16 +1,10 @@
-import React, { useState, useEffect, useRef } from "react";
+import React, { useState } from "react";
 import nextId from "react-id-generator";
 
 function TodoForm(props) {
   const [input, setInput] = useState(
     props.todoToEdit ? props.todoToEdit.value : ""
   );
-
-  const inputFocus = useRef(null);
-
-  useEffect(() => {
-    inputFocus.current.focus();
-  });
 
   const handleChange = (e) => {
     setInput(e.target.value);
@@ -36,11 +30,7 @@ function TodoForm(props) {
         className="todo__form-input"
         value={input}
         onChange={handleChange}
-        ref={inputFocus}
       />
-      {/* <button className="todo-button">
-        {props.todoToEdit ? "Update" : "Add Todo"}
-      </button> */}
     </form>
   );
 }
